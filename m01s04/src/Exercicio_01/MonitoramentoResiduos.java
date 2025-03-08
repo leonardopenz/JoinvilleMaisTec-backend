@@ -10,9 +10,10 @@ public class MonitoramentoResiduos {
     double quantidade;
     LocalDate dataColeta;
 
-    public MonitoramentoResiduos(String tipoResiduo, double quantidade, LocalDate dataColeta) {
-        this.tipoResiduo = tipoResiduo;
-        this.quantidade = quantidade;
-        this.dataColeta = dataColeta;
+    public String details(){
+        return String.format(" ------- Monitoramento de Residuos ----------"+
+                "\ntipoResiduo: %s"+
+                "\nQuantidade: %.2f" +
+                "\nData da coleta: %s", tipoResiduo, quantidade, dataColeta);
     }
 }
