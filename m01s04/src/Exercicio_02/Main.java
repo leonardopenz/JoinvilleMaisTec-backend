@@ -16,7 +16,7 @@ public class Main {
     MonitoramentoResiduos residuo1 = new MonitoramentoResiduos();
     residuo1.tipoResiduo = "Reciclagem";
     residuo1.quantidade = 10;
-    residuo1.dataColeta = LocalDate.of(2025, 03, 7);
+    residuo1.dataColeta = LocalDate.of(2025, 3, 7);
     residuo1.statusColeta = "Pendente";
     residuo1.responsavelColeta = "Carlos Souza";
 
