@@ -1,11 +1,11 @@
-public class Voluntarios {
+public class Voluntario {
     private String nome;
     private String email;
 
-    public Voluntarios() {
+    public Voluntario() {
     }
 
-    public Voluntarios(String nome, String email) {
+    public Voluntario(String nome, String email) {
         this.nome = nome;
         this.email = email;
     }
@@ -26,7 +26,7 @@ public class Voluntarios {
         this.nome = nome;
     }
 
-    public String participarProjeto(){
-        return "";
+    public void participarProjeto(ProjetoSustentavel projetoSustentavel){
+        projetoSustentavel.adicionarVoluntario(this);
     }
 }
