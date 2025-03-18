@@ -2,15 +2,15 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        // Criar uma Organização
-        Organizacao organizacao = new Organizacao("Verde Futuro");
+        // Criar uma ONG
+        ONG ong = new ONG("Verde Futuro");
 
-        // Criar Projetos Sustentáveis e adicioná-los à organização
-        ProjetoSustentavel projeto1 = new ProjetoSustentavel("Reflorestamento Urbano", "Plantio de árvores em áreas urbanas.");
-        ProjetoSustentavel projeto2 = new ProjetoSustentavel("Energia Solar Comunitária", "Instalação de painéis solares em comunidades carentes.");
+        // Criar Projetos Sustentáveis e adicioná-los à ONG
+        ProjetoReflorestamento projeto1 = new ProjetoReflorestamento("Reflorestamento Urbano", "Plantio de árvores em áreas urbanas.", 500);
+        ProjetoEnergiaRenovavel projeto2 = new ProjetoEnergiaRenovavel("Energia Solar Comunitária", "Instalação de painéis solares em comunidades carentes.", 1200.5);
 
-        organizacao.adicionarProjeto(projeto1);
-        organizacao.adicionarProjeto(projeto2);
+        ong.adicionarProjeto(projeto1);
+        ong.adicionarProjeto(projeto2);
 
         // Criar Voluntários e associá-los a projetos
         Voluntario voluntario1 = new Voluntario("Ana Silva", "ana@email.com");
@@ -23,5 +23,7 @@ public class Main {
         projeto1.gerarRelatorioImpacto(500, 1.2);
         projeto1.calcularImpacto();
 
+        projeto2.gerarRelatorioImpacto(500, 1.2);
+        projeto2.calcularImpacto();
     }
 }
