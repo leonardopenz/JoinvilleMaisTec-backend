@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,7 +15,8 @@ public class Main {
             System.out.println("2. Cadastrar Projeto Sustentável");
             System.out.println("3. Cadastrar Voluntário");
             System.out.println("4. Listar Projetos por Tipo");
-            System.out.println("5. Sair");
+            System.out.println("5. Associar Voluntário a um Projeto");
+            System.out.println("6. Sair");
             System.out.print("Escolha uma opção: ");
             int opcao = scan.nextInt();
             scan.nextLine();
@@ -82,7 +84,62 @@ public class Main {
                     System.out.println("Voluntário cadastrado com sucesso!");
                     break;
 
+                case 4:
+                    if(projetos.isEmpty()){
+                        System.out.println("Nenhum projeto cadastrado!");
+                    }else {
+                        for(ProjetoSustentavel proj : projetos){
+                            System.out.println("Projeto: " + proj.getNome());
+                            proj.calcularImpacto();
+                            ArrayList<Voluntario> vol = proj.getVoluntarios();
+                            if (vol.isEmpty()) {
+                                System.out.println("Nenhum voluntário associado a este projeto.");
+                            } else {
+                                System.out.print("Voluntários: ");
+                                for (Voluntario v : vol) {
+                                    System.out.print(v.getNome() + " ");
+                                }
+                                System.out.println();
+                        }
+                    }
+                    }
+                    break;
+
                 case 5:
+                    if(voluntarios.isEmpty()){
+                        System.out.println("Nenhum Voluntário cadastrado. Cadastre um voluntário primeiro!");
+                        break;
+                    }
+                    System.out.println("Escolha um voluntário para associar a um projeto: ");
+                    for (int i = 0; i < voluntarios.size(); i++){
+                        System.out.println((i+1) + "- " + voluntarios.get(i).getNome());
+                    }
+                    int volIndex = scan.nextInt()-1;
+                    scan.nextLine();
+
+                    if(volIndex < 0 || volIndex >= voluntarios.size()){
+                        System.out.println("Voluntário inválido!!");
+                        break;
+                    }
+                    Voluntario voluntario = voluntarios.get(volIndex);
+
+                    System.out.println("Escolha um projeto para associar: ");
+                    for(int i = 0; i < projetos.size(); i++){
+                        System.out.println((+1 ) + "- "+projetos.get(i).getNome());
+                    }
+                    int projIndex = scan.nextInt() -1;
+                    scan.nextLine();
+
+                    if (projIndex < 0 || projIndex >= projetos.size()) {
+                        System.out.println("Projeto inválido.");
+                        break;
+                    }
+                    projetos.get(projIndex).adicionarVoluntario(voluntario);
+                    System.out.println("Voluntário associado com sucesso!");
+
+                    break;
+
+                case 6:
                     System.out.println("Saindo...");
                     scan.close();
                     return;
