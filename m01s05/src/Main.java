@@ -85,23 +85,25 @@ public class Main {
                     break;
 
                 case 4:
-                    if(projetos.isEmpty()){
+                    if (projetos.isEmpty()) {
                         System.out.println("Nenhum projeto cadastrado!");
-                    }else {
-                        for(ProjetoSustentavel proj : projetos){
-                            System.out.println("Projeto: " + proj.getNome());
+                    } else {
+                        for (int i = 0; i < projetos.size(); i++) {
+                            ProjetoSustentavel proj = projetos.get(i);
+                            System.out.println("[" + (i + 1) + "] Projeto: " + proj.getNome());
                             proj.calcularImpacto();
+
                             ArrayList<Voluntario> vol = proj.getVoluntarios();
                             if (vol.isEmpty()) {
                                 System.out.println("Nenhum voluntário associado a este projeto.");
                             } else {
                                 System.out.print("Voluntários: ");
                                 for (Voluntario v : vol) {
-                                    System.out.print(v.getNome() + " ");
+                                    System.out.print(v.getNome() + " \n");
                                 }
                                 System.out.println();
+                            }
                         }
-                    }
                     }
                     break;
 
