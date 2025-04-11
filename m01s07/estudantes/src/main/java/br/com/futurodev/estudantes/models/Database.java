@@ -28,4 +28,14 @@ public class Database {
         Optional<Students> optionalStudent = Database.students.stream().filter(student -> student.getRegistration().equals(registration)).findFirst();
         return optionalStudent.orElse(null);
     }
+
+    public static Students updateStudent(Integer registration, Students student) throws Exception{
+        Students studentToUpdate = Database.listOne(registration);
+        if(studentToUpdate != null){
+            studentToUpdate.setName(student.getName() != null ? student.getName() : studentToUpdate.getName());
+            studentToUpdate.setEmail(student.getEmail() != null ? student.getEmail() : studentToUpdate.getEmail());
+            return studentToUpdate;
+        }
+        throw new Exception("O aluno não foi encontrado!");
+    }
 }
