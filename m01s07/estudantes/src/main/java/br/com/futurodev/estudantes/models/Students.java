@@ -40,13 +40,20 @@ public class Students {
         this.email = email;
     }
 
+    @Override
     public String toString(){
         return String.format("Estudante: %.2f - %s -  %s ", registration, name, email);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Students students = (Students) o;
+        return Objects.equals(registration, students.registration) && Objects.equals(name, students.name) && Objects.equals(email, students.email);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(registration, name, email);
     }
-
 }
