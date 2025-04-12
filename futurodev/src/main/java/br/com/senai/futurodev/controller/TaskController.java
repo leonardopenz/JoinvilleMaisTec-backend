@@ -19,7 +19,7 @@ public class TaskController {
     @GetMapping
     public ResponseEntity<List<Task>> list(){
 
-        List<Task> tasks = this.taskService.list();
+        List<Task> tasks = this.taskService.read();
         return tasks.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(tasks);
     }
 
