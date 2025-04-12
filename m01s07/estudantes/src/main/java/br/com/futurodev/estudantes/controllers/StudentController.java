@@ -44,4 +44,10 @@ public class StudentController {
         return new ResponseEntity<>(student, HttpStatus.OK);
 
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteStudent(@PathVariable Integer registration){
+        this.studentService.deleteStudent(registration);
+        return ResponseEntity.ok("Aluno removido!");
+    }
 }
