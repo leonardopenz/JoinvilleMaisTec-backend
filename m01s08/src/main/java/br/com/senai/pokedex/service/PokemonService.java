@@ -13,11 +13,12 @@ public class PokemonService {
     @Autowired
     PokemonRepository pokemonRepository;
 
-    //CADATRO DE POKEMONS
+    //CADASTRO DE POKEMONS
     public Pokemon create(Pokemon pokemon){
         return pokemonRepository.save(pokemon);
     }
 
+    //ATUALIZAÇÃO DE POKEMONS
     public Pokemon update(Long id, Pokemon pokemonUpdate) throws Exception{
         Optional<Pokemon> pokemon = pokemonRepository.findById(id);
         if(pokemon.isPresent()){
@@ -33,5 +34,10 @@ public class PokemonService {
             pokemonRepository.save(pokemon.get());
         }
         return pokemon.get();
+    }
+
+    //EXCLUSÃO DE POKEMONS
+    public void delete(Long id){
+        pokemonRepository.deleteById(id);
     }
 }

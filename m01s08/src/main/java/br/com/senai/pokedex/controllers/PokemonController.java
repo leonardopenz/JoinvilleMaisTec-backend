@@ -25,4 +25,10 @@ public class PokemonController {
         Pokemon pokemonUpdate = this.pokemonService.update(id, pokemon);
         return ResponseEntity.ok(pokemonUpdate);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id){
+        this.pokemonService.delete(id);
+        return ResponseEntity.ok("Pokemon deletado com sucesso!");
+    }
 }
