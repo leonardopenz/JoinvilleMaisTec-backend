@@ -5,6 +5,7 @@ import br.com.senai.pokedex.repository.PokemonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -39,5 +40,10 @@ public class PokemonService {
     //EXCLUSÃO DE POKEMONS
     public void delete(Long id){
         pokemonRepository.deleteById(id);
+    }
+
+    //LISTAR UM POKEMON
+    public Optional<Pokemon> findOne(Long id) {
+        return pokemonRepository.findById(id);
     }
 }

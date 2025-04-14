@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/pokemon")
 public class PokemonController {
@@ -30,5 +32,11 @@ public class PokemonController {
     public ResponseEntity<String> delete(@PathVariable Long id){
         this.pokemonService.delete(id);
         return ResponseEntity.ok("Pokemon deletado com sucesso!");
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Pokemon> findOne(@PathVariable Long id){
+        Optional<Pokemon> pokemon = pokemonService.findOne(id);
+        return pokemon.map(ResponseEntity::ok).orElseGet(()-> ResponseEntity.notFound().build());
     }
 }
