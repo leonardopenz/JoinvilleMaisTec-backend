@@ -5,10 +5,7 @@ import br.com.senai.pokedex.repository.PokemonRepository;
 import br.com.senai.pokedex.service.PokemonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/pokemon")
@@ -21,5 +18,11 @@ public class PokemonController {
     public ResponseEntity<Pokemon> create(@RequestBody Pokemon pokemon) throws Exception{
         this.pokemonService.create(pokemon);
         return ResponseEntity.ok(pokemon);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Pokemon> update(@PathVariable Long id, @RequestBody Pokemon pokemon) throws Exception{
+        Pokemon pokemonUpdate = this.pokemonService.update(id, pokemon);
+        return ResponseEntity.ok(pokemonUpdate);
     }
 }
