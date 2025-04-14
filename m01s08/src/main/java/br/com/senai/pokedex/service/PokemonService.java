@@ -46,4 +46,9 @@ public class PokemonService {
     public Optional<Pokemon> findOne(Long id) {
         return pokemonRepository.findById(id);
     }
+
+    //LISTAR TODOS OS POKEMONS CADASTRADOS
+    public List<Pokemon> findAll(){
+        return pokemonRepository.findAll();
+    }
 }

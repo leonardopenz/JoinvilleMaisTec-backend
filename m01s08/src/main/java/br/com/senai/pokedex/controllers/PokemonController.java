@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -38,5 +39,11 @@ public class PokemonController {
     public ResponseEntity<Pokemon> findOne(@PathVariable Long id){
         Optional<Pokemon> pokemon = pokemonService.findOne(id);
         return pokemon.map(ResponseEntity::ok).orElseGet(()-> ResponseEntity.notFound().build());
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Pokemon>> findAll(){
+        List<Pokemon> pokemons = this.pokemonService.findAll();
+        return pokemons.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(pokemons);
     }
 }
