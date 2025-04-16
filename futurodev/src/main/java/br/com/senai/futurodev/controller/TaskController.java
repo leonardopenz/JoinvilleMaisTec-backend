@@ -1,9 +1,8 @@
 package br.com.senai.futurodev.controller;
 
-import br.com.senai.futurodev.model.Task;
+import br.com.senai.futurodev.model.entity.Task;
 import br.com.senai.futurodev.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

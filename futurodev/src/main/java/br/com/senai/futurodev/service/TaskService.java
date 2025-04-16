@@ -1,7 +1,6 @@
 package br.com.senai.futurodev.service;
 
-import br.com.senai.futurodev.model.Database;
-import br.com.senai.futurodev.model.Task;
+import br.com.senai.futurodev.model.entity.Task;
 import br.com.senai.futurodev.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
