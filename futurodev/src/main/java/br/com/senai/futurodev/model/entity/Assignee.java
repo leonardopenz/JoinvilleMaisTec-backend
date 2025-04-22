@@ -1,5 +1,6 @@
 package br.com.senai.futurodev.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +20,7 @@ public class Assignee {
     @Column
     private String name;
     @OneToMany(mappedBy = "assignee")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Task> tasks;
 
 }

@@ -1,6 +1,7 @@
 package br.com.senai.futurodev.service;
 
 import br.com.senai.futurodev.model.entity.Assignee;
+import br.com.senai.futurodev.model.exceptions.ResourceNotFoundException;
 import br.com.senai.futurodev.repository.AssigneeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,9 @@ public class AssigneeService {
 
     //Listar 1 registro pelo ID
     public Assignee findAssigneeById(Long id){
-        return assigneeRepository.findById(id).orElseThrow();
+        return assigneeRepository.findById(id).orElseThrow(
+                ()-> new ResourceNotFoundException("Assignee not found with id "+ id)
+        );
     }
 
     //Atualizar 1 registro

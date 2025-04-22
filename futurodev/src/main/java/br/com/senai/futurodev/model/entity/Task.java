@@ -2,6 +2,7 @@ package br.com.senai.futurodev.model.entity;
 
 import br.com.senai.futurodev.model.enums.TaskPriorityEnum;
 import br.com.senai.futurodev.model.enums.TaskStatusEnum;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
