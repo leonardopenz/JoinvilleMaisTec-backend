@@ -22,7 +22,7 @@ public class Assignee {
     @Column(nullable = false)
     private String email;
     @Column(nullable = false)
-    private String passoword;
+    private String password;
     @OneToMany(mappedBy = "assignee")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Task> tasks;
